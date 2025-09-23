@@ -1,47 +1,41 @@
+"use client";
+import Image from "next/image";
+import FrameOptions from "./FrameOptions";
+import { useState } from "react";
+import { templates } from "@/data/templates";
+
 export default function TemplateSelector() {
-  const templates = [
-    { id: 1, label: "No Frame" },
-    { id: 2, label: "Scan Me" },
-    { id: 3, label: "Get App" },
-    { id: 4, label: "Custom Text" },
-  ];
+  const [activeId, setActiveId] = useState<number | null>(null);
 
   return (
-    <div>
-      <h2 className="text-sm font-medium mb-2">Frame</h2>
+    <div className="bg-white p-3 border-gray-200 border shadow rounded-md">
+      <h1 className="font-bold text-lg text-gray-800 mb-6">
+        Start with a template
+      </h1>
+      <h2 className="text-gray-700 text-md font-bold mb-4">FRAME</h2>
 
       {/* Horizontal scroll container */}
       <div className="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
-        {templates.map((tpl) => (
+        {templates?.map((tpl) => (
           <div
+            tabIndex={0}
             key={tpl.id}
-            className="flex-shrink-0 w-28 h-28 border rounded-lg flex items-center justify-center text-xs bg-white shadow-sm"
+            onClick={() => setActiveId(tpl.id)}
+            className={`flex-shrink-0 w-28 h-28 rounded flex items-center justify-center text-xs cursor-pointer transition-all bg-gray-100
+              ${activeId === tpl.id && "border-3 border-blue-400"}`}
           >
-            {tpl.label}
+            <Image
+              src={`/${tpl.path}`}
+              alt={`Frame${tpl.id}`}
+              width={80}
+              height={80}
+            />
           </div>
         ))}
       </div>
 
       {/* Example frame options */}
-      <div className="mt-4 space-y-3">
-        <div className="flex items-center gap-2">
-          <label className="text-sm">Frame Color:</label>
-          <input
-            type="color"
-            defaultValue="#000000"
-            className="w-10 h-8 p-0 border"
-          />
-        </div>
-
-        <div className="flex items-center gap-2">
-          <label className="text-sm">Frame Text:</label>
-          <input
-            type="text"
-            placeholder="SCAN ME"
-            className="flex-1 border px-2 py-1 rounded"
-          />
-        </div>
-      </div>
+      <FrameOptions />
     </div>
   );
 }

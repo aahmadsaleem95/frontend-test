@@ -1,0 +1,18 @@
+export const templates = [
+  { id: 1, label: "No Frame", path: "scan-me1.jpg" },
+  { id: 2, label: "Scan Me", path: "scan-me2.png" },
+  { id: 3, label: "Get App", path: "scan-me3.jpg" },
+  { id: 4, label: "Custom Text", path: "scan-me4.webp" },
+  { id: 5, label: "No Frame", path: "scan-me1.jpg" },
+  { id: 6, label: "Scan Me", path: "scan-me2.png" },
+  { id: 7, label: "Get App", path: "scan-me3.jpg" },
+  { id: 8, label: "Custom Text", path: "scan-me4.webp" },
+  { id: 9, label: "No Frame", path: "scan-me1.jpg" },
+  { id: 10, label: "Scan Me", path: "scan-me2.png" },
+  { id: 11, label: "Get App", path: "scan-me3.jpg" },
+  { id: 12, label: "Custom Text", path: "scan-me4.webp" },
+  { id: 13, label: "No Frame", path: "scan-me1.jpg" },
+  { id: 14, label: "Scan Me", path: "scan-me2.png" },
+  { id: 15, label: "Get App", path: "scan-me3.jpg" },
+  { id: 16, label: "Custom Text", path: "scan-me4.webp" },
+];

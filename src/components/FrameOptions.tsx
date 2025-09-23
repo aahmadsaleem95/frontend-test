@@ -2,37 +2,38 @@
 
 import { useState } from "react";
 
-interface FrameOptionsProps {
-  onChange: (options: { color: string; text: string }) => void;
-}
-
-export default function FrameOptions({ onChange }: FrameOptionsProps) {
+export default function FrameOptions() {
   const [color, setColor] = useState("#000000");
   const [text, setText] = useState("SCAN ME");
 
   const handleChange = (newColor: string, newText: string) => {
     setColor(newColor);
     setText(newText);
-    onChange({ color: newColor, text: newText });
   };
 
   return (
-    <div className="mt-4 space-y-4">
-      <div className="flex items-center gap-3">
-        <label htmlFor="frameColor" className="text-sm font-medium">
+    <div className="mt-4 overflow-scroll flex gap-3">
+      <div className="flex gap-1 flex-col min-w-[140px] border border-gray-200 p-2 rounded">
+        <label
+          htmlFor="frameColor"
+          className="text-xs font-bold text-gray-600 w-full"
+        >
           Frame Color:
         </label>
-        <input
-          id="frameColor"
-          type="color"
-          value={color}
-          onChange={(e) => handleChange(e.target.value, text)}
-          className="w-10 h-8 p-0 border rounded"
-        />
+        <div className="flex gap-3 border border-gray-300 rounded py-1 px-2">
+          <span className="text-sm text-gray-500">{color}</span>
+          <input
+            id="frameColor"
+            type="color"
+            value={color}
+            onChange={(e) => handleChange(e.target.value, text)}
+            className="w-5 h-6 p-0 rounded-md"
+          />
+        </div>
       </div>
 
-      <div className="flex items-center gap-3">
-        <label htmlFor="frameText" className="text-sm font-medium">
+      <div className="flex gap-1 flex-col border border-gray-200 p-2 rounded">
+        <label htmlFor="frameText" className="text-xs font-bold text-gray-600">
           Frame Text:
         </label>
         <input
@@ -40,7 +41,7 @@ export default function FrameOptions({ onChange }: FrameOptionsProps) {
           type="text"
           value={text}
           onChange={(e) => handleChange(color, e.target.value)}
-          className="flex-1 border px-2 py-1 rounded"
+          className="flex-1 border border-gray-300 px-2 py-1 rounded text-gray-500 text-sm"
         />
       </div>
     </div>
