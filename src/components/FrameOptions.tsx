@@ -12,7 +12,12 @@ export default function FrameOptions() {
   };
 
   return (
-    <div className="mt-4 overflow-scroll flex gap-3">
+    <div
+      className="mt-4 overflow-scroll flex gap-3"
+      role="region"
+      aria-label="Frame customization options"
+    >
+      {/* Frame Color Option */}
       <div className="flex gap-1 flex-col min-w-[140px] border border-gray-200 p-2 rounded">
         <label
           htmlFor="frameColor"
@@ -21,17 +26,25 @@ export default function FrameOptions() {
           Frame Color:
         </label>
         <div className="flex gap-3 border border-gray-300 rounded py-1 px-2">
-          <span className="text-sm text-gray-500">{color}</span>
+          <span
+            className="text-sm text-gray-700"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            {color}
+          </span>
           <input
             id="frameColor"
             type="color"
             value={color}
             onChange={(e) => handleChange(e.target.value, text)}
-            className="w-5 h-6 p-0 rounded-md"
+            className="w-5 h-6 p-0 rounded-md cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            aria-label="Select frame color"
           />
         </div>
       </div>
 
+      {/* Frame Text Option */}
       <div className="flex gap-1 flex-col border border-gray-200 p-2 rounded">
         <label htmlFor="frameText" className="text-xs font-bold text-gray-600">
           Frame Text:
@@ -41,7 +54,8 @@ export default function FrameOptions() {
           type="text"
           value={text}
           onChange={(e) => handleChange(color, e.target.value)}
-          className="flex-1 border border-gray-300 px-2 py-1 rounded text-gray-500 text-sm"
+          className="flex-1 border border-gray-300 px-2 py-1 rounded text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          aria-label="Enter frame text"
         />
       </div>
     </div>
