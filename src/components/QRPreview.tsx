@@ -6,7 +6,11 @@ export default function QRPreview() {
   return (
     <div className="sticky top-0 z-50 bg-white shadow-sm p-4 flex flex-col items-center">
       {/* QR Code */}
-      <QRCodeCanvas value="https://example.com" size={160} />
+      <QRCodeCanvas
+        value="https://example.com"
+        size={160}
+        data-testid="qr-code"
+      />
 
       {/* CTA button */}
       <button className="mt-3 bg-black text-white px-4 py-2 rounded-lg text-sm">
