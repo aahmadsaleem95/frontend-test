@@ -2,6 +2,7 @@
 
 import { QRCodeCanvas } from "qrcode.react";
 import { useEffect, useState } from "react";
+import Tooltip from "./Tooltip";
 
 export default function QRPreview() {
   const [scrolled, setScrolled] = useState(false);
@@ -54,11 +55,12 @@ export default function QRPreview() {
 
       {/* Status */}
       <div
-        className="mt-2 text-xs text-green-700 bg-green-100 px-3 py-1"
+        className="flex items-center gap-2 mt-2 text-xs text-gray-600 font-semibold bg-green-100 px-3 py-1"
         role="status"
         aria-live="polite"
       >
         Scannability: Excellent
+        <Tooltip text="The Scannability of QR code is excellent." />
       </div>
     </div>
   );

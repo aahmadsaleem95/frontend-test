@@ -3,6 +3,7 @@ import Image from "next/image";
 import FrameOptions from "./FrameOptions";
 import { useState } from "react";
 import { templates } from "@/data/templates";
+import Tooltip from "./Tooltip";
 
 export default function TemplateSelector() {
   const [activeId, setActiveId] = useState<number | null>(null);
@@ -12,7 +13,10 @@ export default function TemplateSelector() {
       <h1 className="font-bold text-lg text-gray-800 mb-6">
         Start with a template
       </h1>
-      <h2 className="text-gray-700 text-md font-bold mb-4">FRAME</h2>
+      <div className="flex items-center mb-4 gap-2">
+        <h2 className="text-gray-700 text-md font-bold">FRAME</h2>
+        <Tooltip text="You can select any frame you want from options given below." />
+      </div>
 
       {/* Horizontal scroll container */}
       <div
